@@ -39,3 +39,7 @@ export default function transformSnakeIntoCamelCase(obj: Record<string, any>) {
     }),
   );
 }
+
+export function objectToArrayWithObjects(obj: Record<string, any>): any[] {
+  return Object.values(obj);
+}

@@ -7,7 +7,7 @@ interface Props {
     textPrimary: string;
     textSecondary: string;
     textDisabled: string;
-    bgMainColor: string;
+    background: string;
     divider: string;
     card: string;
     border: string;

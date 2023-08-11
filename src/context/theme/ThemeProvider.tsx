@@ -9,7 +9,7 @@ export interface IColorsProps {
     textPrimary: string;
     textSecondary: string;
     textDisabled: string;
-    bgMainColor: string;
+    background: string;
     divider: string;
     card: string;
     border: string;
@@ -37,7 +37,7 @@ export const lightTheme = {
     textPrimary: 'rgba(0, 0, 0, 0.87)',
     textSecondary: 'rgba(0, 0, 0, 0.6)',
     textDisabled: 'rgba(0, 0, 0, 0.38)',
-    bgMainColor: '#fff',
+    background: '#fff',
     divider: 'rgba(0, 0, 0, 0.12)',
     card: 'rgba(0, 0, 0, 0.08)',
     border: 'rgba(0, 0, 0, 0.04)',
@@ -61,7 +61,7 @@ export const darkTheme = {
     textPrimary: '#fff',
     textSecondary: 'rgba(255, 255, 255, 0.7)',
     textDisabled: 'rgba(255, 255, 255, 0.5)',
-    bgMainColor: '#121212',
+    background: '#121212',
     divider: 'rgba(255, 255, 255, 0.12)',
     card: 'rgba(255, 255, 255, 0.16)',
     border: 'rgba(255, 255, 255, 0.08)',

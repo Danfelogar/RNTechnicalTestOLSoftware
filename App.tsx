@@ -1,49 +1,42 @@
+//dependencies
 import React from 'react';
-import {
-  Platform,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {dummyServices} from './src/services';
-import {BASE_URL} from './src/helpers/constants';
-import {AxiosError} from 'axios';
+import 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+
+import {NavigationContainer} from '@react-navigation/native';
+
+//contexts
+import {ThemeProvider} from './src/context';
+
+//components
+import {NavigationMain} from './src/navigation';
+import createPersistedStore from './src/redux/store';
+
+const {store, persistor} = createPersistedStore();
 
 function App(): JSX.Element {
-  console.log({BASE_URL});
-  const servise = async () => {
-    return await dummyServices
-      .get('/users')
-      .then(res => {
-        console.log(
-          Platform.OS === 'android' ? 'android' : 'ios',
-          res.headers['x-total-count'],
-          res.data.data[0].lastName,
-        );
-      })
-      .catch((err: AxiosError) => console.log(err));
-  };
-
-  servise();
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <StatusBar barStyle="light-content" backgroundColor="orange" />
-      <View>
-        <Text>
-          Hello <Icon name="rocket" size={30} color="#900" />
-        </Text>
-      </View>
-    </SafeAreaView>
+    <AppState>
+      <NavigationContainer>
+        <NavigationMain />
+      </NavigationContainer>
+    </AppState>
   );
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-  },
-});
+function AppState({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}): JSX.Element {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </PersistGate>
+    </Provider>
+  );
+}
 
 export default App;
