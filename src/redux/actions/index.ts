@@ -1,1 +1,2 @@
-export * as actionsAuth from './auth.actions';
+export * from './auth.actions';
+export * from './notifications.actions';

@@ -12,6 +12,7 @@ import {ThemeProvider} from './src/context';
 //components
 import {NavigationMain} from './src/navigation';
 import createPersistedStore from './src/redux/store';
+import {UIProvider} from './src/context/ui';
 
 const {store, persistor} = createPersistedStore();
 
@@ -33,7 +34,9 @@ function AppState({
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <UIProvider>{children}</UIProvider>
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   );

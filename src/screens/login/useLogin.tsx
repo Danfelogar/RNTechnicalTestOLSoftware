@@ -10,21 +10,19 @@ import {validateLogin} from '../../helpers';
 import {ILoginCredentials} from './types';
 //components
 import {dummyServices} from '../../services';
-import {useAppDispatch, useAppSelector} from '../../redux/hooks';
-import {selectUser} from '../../redux/selectors/auth.selector';
+import {useAppDispatch} from '../../redux/hooks';
 import {addAuthUserCredential} from '../../redux/actions/auth.actions';
 
 export function useLogin() {
   //global context
   const dispatch = useAppDispatch();
-  const userAuth = useAppSelector(selectUser());
   const navigation = useNavigation<any>();
   //state
   const [isLoading, setIsLoading] = useState(false);
   const [isPasswordSecret, setIsPasswordSecret] = useState(true);
   const [isSnackbarError, setIsSnackbarError] = useState(false);
   const [textError, setTextError] = useState<string | undefined>(undefined);
-  console.log({userAuth});
+
   //credentials validations with react hook form and yup
   const formMethods = useForm<ILoginCredentials>({
     resolver: yupResolver(validateLogin),
@@ -67,7 +65,7 @@ export function useLogin() {
   }
   //navigate redirection
   function getDashboard() {
-    navigation.navigate('Dashboard');
+    navigation.navigate('PrivateNavigation');
   }
   return {
     //states

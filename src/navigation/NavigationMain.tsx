@@ -1,37 +1,54 @@
 //dependencies
 import {createStackNavigator} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 //components
-import {Dashboard, Login} from '../screens';
+import {Login} from '../screens';
+import {PrivateNavigation} from './PrivateNavigation';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import {selectIsAuth, selectUserJWT} from '../redux/selectors/auth.selector';
+import {
+  clearUserCredentials,
+  revalidateUser,
+} from '../redux/actions/auth.actions';
 
 export type RootStackMainParams = {
   Login: undefined;
-  Dashboard: undefined;
+  PrivateNavigation: undefined;
 };
 
 const Stack = createStackNavigator<RootStackMainParams>();
 
 export function NavigationMain() {
+  //globalContext
+  const dispatch = useAppDispatch();
+  const isUserAuth = useAppSelector(selectIsAuth());
+  const userJWT = useAppSelector(selectUserJWT());
+  //validated credentials for roots
+  useEffect(() => {
+    if (userJWT) {
+      dispatch(revalidateUser(userJWT));
+    } else {
+      dispatch(clearUserCredentials());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (isUserAuth === 'pending') {
+    //show splashScreen with logo
+    return <></>;
+  }
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Dashboard" component={Dashboard} />
-      {/* {isLoggedIn === 'logout' && (
-        <>
-
-          <Stack.Screen name="Register" component={Register} />
-        </>
+      {isUserAuth === 'valid' && (
+        <Stack.Screen name="PrivateNavigation" component={PrivateNavigation} />
       )}
-      {isLoggedIn === 'login' && (
-        <>
-          <Stack.Screen name="UserList" component={UserList} />
-          <Stack.Screen name="UserDetails" component={UserDetails} />
-        </>
-      )} */}
+      {isUserAuth === 'denied' && (
+        <Stack.Screen name="Login" component={Login} />
+      )}
     </Stack.Navigator>
   );
 }
