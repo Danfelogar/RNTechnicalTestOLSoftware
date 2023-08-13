@@ -17,3 +17,11 @@ export interface ITodos {
   check: boolean;
   hide: boolean;
 }
+
+export interface ICardNotifications extends Pick<IColorsProps, 'colors'> {
+  notification: INotifications;
+}
+
+export interface ICardTodos extends Pick<IColorsProps, 'colors'> {
+  todo: ITodos;
+}

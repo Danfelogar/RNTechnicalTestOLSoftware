@@ -6,4 +6,5 @@ export * from './ModalNotification';
 export * from './custom';
 export * from './hooks';
 export * from './styledComponent';
+export * from './table';
 export * from './types';

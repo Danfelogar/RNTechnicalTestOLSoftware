@@ -8,11 +8,16 @@ export const INITIAL_STATE_AUTH: IAuthState = {
   user: null,
   isAuth: 'pending',
   userJWT: null,
+  rol: 'Pending',
 };
 type authActionType =
   | {
       type: typeof actionsTypeAuth.AUTH_USER_ADD_CREDENTIAL;
       payload: {user: IUserLogin; userJWT: string};
+    }
+  | {
+      type: typeof actionsTypeAuth.AUTH_USER_ADD_ROL;
+      payload: 'Admin' | 'Dev' | 'Pending';
     }
   | {
       type: typeof actionsTypeAuth.AUTH_USER_REVALIDATED_CREDENTIAL;
@@ -32,6 +37,11 @@ export default function authReducer(
         isAuth: 'valid',
         user: action.payload.user,
         userJWT: action.payload.userJWT,
+      };
+    case actionsTypeAuth.AUTH_USER_ADD_ROL:
+      return {
+        ...state,
+        rol: action.payload,
       };
     case actionsTypeAuth.AUTH_USER_CLEAR_CREDENTIAL:
       return {

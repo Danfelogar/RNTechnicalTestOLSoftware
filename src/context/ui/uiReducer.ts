@@ -2,6 +2,7 @@ import {IUIState} from './UIProvider';
 
 type UIActionType =
   | {type: '[UI] Switching state modal notifications'}
+  | {type: '[UI] Switching state modal warning for delete'}
   | {type: '[UI] Switching state modal nav'};
 
 export const uiReducer = (state: IUIState, action: UIActionType): IUIState => {
@@ -10,6 +11,11 @@ export const uiReducer = (state: IUIState, action: UIActionType): IUIState => {
       return {
         ...state,
         isOpenModalNotifications: !state.isOpenModalNotifications,
+      };
+    case '[UI] Switching state modal warning for delete':
+      return {
+        ...state,
+        isOpenModalWarningForDelete: !state.isOpenModalWarningForDelete,
       };
     case '[UI] Switching state modal nav':
       return {

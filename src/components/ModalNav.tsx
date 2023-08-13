@@ -24,7 +24,7 @@ export function ModalNav() {
   //globalContext
   const dispatch = useAppDispatch();
   const {
-    theme: {colors},
+    theme: {colors, dark},
   } = useContext(ThemeContext);
   const {isOpenModalNav, changeStateModalNav} = useContext(UIContext);
   const {top, bottom} = useSafeAreaInsets();
@@ -47,7 +47,7 @@ export function ModalNav() {
       <StatusBar
         backgroundColor={colors.secondary}
         showHideTransition={'slide'}
-        barStyle="default"
+        barStyle={dark ? 'light-content' : 'dark-content'}
       />
       <Modal
         visible={isOpenModalNav}

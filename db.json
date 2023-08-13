@@ -345,40 +345,11 @@
       "status": "En Desarrollo"
     },
     {
-      "id": 9,
-      "project_name": "Mauris Vestibulum Neque LLP",
-      "repo_url": "https://",
-      "client": "Sociis Natoque Penatibus Ltd",
-      "developers": "Franci Eliana Viveros Martínez|Leonardo Zapata Mora|Breyner Albarracín Lozada|Sandra Lorena Buitrón Ruiz|Maria del Pilar Muñoz Casañas",
-      "ci": false,
-      "cd": false,
-      "frontend_tecnology": "React-Native",
-      "backend_tecnology": "Java, Python",
-      "databases": "MySQL|ORACLE|SQLServer|MongoDB|PosgresSQL",
-      "errors_count": 3,
-      "warning_count": 5,
-      "deploy_count": 11,
-      "percentage_completion": 2,
-      "report_nc": 241,
-      "status": "En Desarrollo"
+      "project_name": "Daniel Project1",
+      "id": 9
     },
     {
-      "id": 10,
-      "project_name": "Lorem Vitae Inc.",
-      "repo_url": "https://",
-      "client": "Cras Interdum Consulting",
-      "developers": "Breyner Albarracín Lozada|Erik Steven Alegria Mina|Maria del Pilar Muñoz Casañas",
-      "ci": true,
-      "cd": false,
-      "frontend_tecnology": "VueJS|Angular",
-      "backend_tecnology": "Java, .Net",
-      "databases": "SQLServer|MySQL|ORACLE",
-      "errors_count": 73,
-      "warning_count": 8,
-      "deploy_count": 13,
-      "percentage_completion": 56,
-      "report_nc": 432,
-      "status": "En Desarrollo"
+      "id": 10
     },
     {
       "id": 11,

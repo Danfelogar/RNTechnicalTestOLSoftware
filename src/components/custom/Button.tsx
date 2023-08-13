@@ -1,6 +1,6 @@
 //dependencies
 import React from 'react';
-import {ActivityIndicator, TouchableOpacity} from 'react-native';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 //types
 import {IButton} from './types';
 
@@ -26,11 +26,11 @@ export function Button({
           color={colorSpinierLoading ? colorSpinierLoading : '#6A5691'}
         />
       ) : (
-        <>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
           {firstIcon && firstIcon}
           {textContent && textContent}
           {lastIcon && lastIcon}
-        </>
+        </View>
       )}
     </TouchableOpacity>
   );

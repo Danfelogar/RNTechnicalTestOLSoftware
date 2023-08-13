@@ -28,7 +28,7 @@ export interface ICustomTextStyles {
 }
 
 export interface IComponentCustomText extends ICustomTextStyles {
-  children: JSX.Element | string;
+  children: JSX.Element | string | string[];
 }
 
 //genericInputs

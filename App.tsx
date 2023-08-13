@@ -13,6 +13,7 @@ import {ThemeProvider} from './src/context';
 import {NavigationMain} from './src/navigation';
 import createPersistedStore from './src/redux/store';
 import {UIProvider} from './src/context/ui';
+import {ActivityIndicator} from 'react-native';
 
 const {store, persistor} = createPersistedStore();
 
@@ -33,7 +34,7 @@ function AppState({
 }): JSX.Element {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
         <ThemeProvider>
           <UIProvider>{children}</UIProvider>
         </ThemeProvider>

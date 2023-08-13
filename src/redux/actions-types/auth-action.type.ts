@@ -23,6 +23,12 @@ export interface IAuthUserRevalidatedCredential {
     // isAuth: 'valid';
   };
 }
+export const AUTH_USER_ADD_ROL = 'authActions/AUTH_USER_ADD_ROL';
+
+export interface IAuthUserAddRol {
+  type: typeof AUTH_USER_ADD_ROL;
+  payload: 'Admin' | 'Dev' | 'Pending';
+}
 
 export const AUTH_USER_CLEAR_CREDENTIAL =
   'authActions/AUTH_USER_CLEAR_CREDENTIAL';

@@ -23,12 +23,12 @@ import {
   selectTodosArr,
 } from '../redux/selectors/notifications.selector';
 import {CardNotifications} from './CardNotifications';
-import CardTodos from './CardTodos';
+import {CardTodos} from './CardTodos';
 
 export function ModalNotification() {
   //globalContext
   const {
-    theme: {colors},
+    theme: {colors, dark},
   } = useContext(ThemeContext);
   const notificationsArr = useAppSelector(selectNotificationsArr());
   const todosArr = useAppSelector(selectTodosArr());
@@ -55,7 +55,7 @@ export function ModalNotification() {
       <StatusBar
         backgroundColor={colors.secondary}
         showHideTransition={'slide'}
-        barStyle="default"
+        barStyle={dark ? 'light-content' : 'dark-content'}
       />
       <Modal
         visible={isOpenModalNotifications}
@@ -96,7 +96,11 @@ export function ModalNotification() {
                 Sección de notificaciones
               </CustomText>
               {notificationsArr.map((item, idx) => (
-                <CardNotifications key={idx} notification={item} />
+                <CardNotifications
+                  colors={colors}
+                  key={idx}
+                  notification={item}
+                />
               ))}
               <CustomText
                 fontSize={17}
@@ -106,7 +110,7 @@ export function ModalNotification() {
                 Sección de quehaceres
               </CustomText>
               {todosArr.map((item, idx) => (
-                <CardTodos key={idx} todo={item} />
+                <CardTodos key={idx} todo={item} colors={colors} />
               ))}
             </ScrollView>
             {/* <FlatList

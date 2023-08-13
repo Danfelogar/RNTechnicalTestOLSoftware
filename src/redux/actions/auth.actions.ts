@@ -33,3 +33,9 @@ export function revalidateUser(
 export function clearUserCredentials(): actionsTypeAuth.IAuthUserClearCredential {
   return {type: actionsTypeAuth.AUTH_USER_CLEAR_CREDENTIAL};
 }
+
+export function addRolUser(
+  val: 'Admin' | 'Dev' | 'Pending',
+): actionsTypeAuth.IAuthUserAddRol {
+  return {type: actionsTypeAuth.AUTH_USER_ADD_ROL, payload: val};
+}

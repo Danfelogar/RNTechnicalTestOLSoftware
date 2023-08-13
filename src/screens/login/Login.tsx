@@ -23,7 +23,7 @@ import {LoginForm} from './components/LoginForm';
 export function Login() {
   //global context
   const {
-    theme: {colors},
+    theme: {colors, dark},
   } = useContext(ThemeContext);
   //customStyles
   const {
@@ -55,7 +55,7 @@ export function Login() {
         <StatusBar
           backgroundColor={colors.background}
           showHideTransition="slide"
-          barStyle="default"
+          barStyle={dark ? 'light-content' : 'dark-content'}
         />
         <View style={loginWrapper}>
           <Image
