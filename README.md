@@ -37,6 +37,8 @@ cd ..
 
 7. Levanta el emulador de Android: yarn android
 
+8. Puede ejecutar los tests unitarios de toda la app con: yarn test
+
 
 
 
