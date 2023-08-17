@@ -2,6 +2,7 @@
 
 Este proyecto de React Native incluye un backend y configuraciones para ejecutarlo en emuladores de iOS y Android. Asegúrate de seguir los pasos a continuación para configurar y ejecutar el proyecto correctamente.
 
+![](https://github.com/Danfelogar/RNTechnicalTestOLSoftware/blob/master/src/public/main-screen.png)
 ## Link del video en youtube (Demo tecnica)
 [![Alt text](https://img.youtube.com/vi/ffMDuPOLEjg/0.jpg)](https://www.youtube.com/watch?v=ffMDuPOLEjg)
 
