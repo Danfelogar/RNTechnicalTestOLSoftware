@@ -2,6 +2,7 @@
 import moment from 'moment';
 //parsing date and try to fixing time
 export function formattedDate(originalDate: string) {
+  console.log({originalDate});
   //fixing logic
   const [datePart, timePart] = originalDate.split(' ');
 
@@ -9,9 +10,14 @@ export function formattedDate(originalDate: string) {
 
   const adjustedHours = Math.floor(minutes / 60);
   const adjustedMinutes = minutes % 60;
-
   const correctedHours = hours + adjustedHours;
   const correctedMinutes = adjustedMinutes;
+  console.log({
+    adjustedHours,
+    adjustedMinutes,
+    correctedHours,
+    correctedMinutes,
+  });
 
   const correctedTime = `${correctedHours}:${correctedMinutes
     .toString()

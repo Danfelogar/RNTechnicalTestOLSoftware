@@ -2,6 +2,7 @@
 import React, {useContext} from 'react';
 import {View} from 'react-native';
 import {
+  VictoryAxis,
   VictoryChart,
   VictoryLabel,
   VictoryLine,
@@ -62,8 +63,43 @@ export function CPUReportCard({deploys, percentajeTime, time}: ICPUReports) {
             data: {stroke: colors.purpleLight},
           }}
           labels={({datum}) => datum.y}
-          labelComponent={<VictoryLabel dy={-7} dx={30} />}
+          labelComponent={
+            <VictoryLabel
+              style={{fill: colors.textSecondary}}
+              dy={-7}
+              dx={30}
+            />
+          }
           data={transformDataForChart(time)}
+        />
+
+        <VictoryAxis
+          // key={i}
+          // label={d.time}
+          // tickValues={time.map(it => it.time)}
+          // axisValue={d.time}
+          style={{
+            tickLabels: {fill: colors.textSecondary, fontSize: 10},
+            grid: {stroke: 'none'},
+          }}
+          tickLabelComponent={
+            <VictoryLabel
+              angle={-45}
+              style={{
+                fontSize: 11,
+                fill: colors.textSecondary,
+              }}
+            />
+          }
+        />
+
+        <VictoryAxis
+          // tickValues={time.map(it => it.value)}
+          dependentAxis
+          style={{
+            tickLabels: {fill: colors.textSecondary, fontSize: 10},
+            grid: {stroke: 'none'},
+          }}
         />
       </VictoryChart>
       <CustomText
