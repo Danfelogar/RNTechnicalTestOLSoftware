@@ -1,7 +1,7 @@
 //types
-import {INotifications, ITodos} from '../../components';
+import {INotifications, ITodos} from '../../../components';
 
-export interface INotificationState {
+export interface INotificationsState {
   counterNotifications: number;
   notificationsArr: INotifications[];
   todosArr: ITodos[];

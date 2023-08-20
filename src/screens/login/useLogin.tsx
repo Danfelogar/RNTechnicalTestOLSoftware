@@ -11,11 +11,12 @@ import {ILoginCredentials} from './types';
 //components
 import {dummyServices} from '../../services';
 import {useAppDispatch} from '../../redux/hooks';
-import {addAuthUserCredential} from '../../redux/actions/auth.actions';
+import {authActionsSelectors} from '../../redux/actions';
 
 export function useLogin() {
   //global context
   const dispatch = useAppDispatch();
+  const {addAuthUserCredential} = authActionsSelectors();
   const navigation = useNavigation<any>();
   //state
   const [isLoading, setIsLoading] = useState(false);

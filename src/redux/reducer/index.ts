@@ -1,8 +1,7 @@
 //dependencies
 import {combineReducers} from 'redux';
-//component
-import authReducer from './auth.reducer';
-import notificationsReducer from './notifications.reducer';
+import {authReducer} from './auth';
+import {notificationsReducer} from './notifications';
 
 export default combineReducers({
   auth: authReducer,

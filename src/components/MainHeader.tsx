@@ -10,12 +10,12 @@ import {headerStyles} from './styledComponent';
 import {heightFullScreen, widthFullScreen} from '../helpers';
 //components
 import {ThemeContext, UIContext} from '../context';
-import {selectUser} from '../redux/selectors/auth.selector';
 import {useAppSelector} from '../redux/hooks';
 import {ModalNav} from './ModalNav';
 import {ModalNotification} from './ModalNotification';
 import {useModalNotifications} from './hooks';
-import {selectCounterNotifications} from '../redux/selectors/notifications.selector';
+import {authSelectors} from '../redux/selectors/authSelectors';
+import {notificationsSelectors} from '../redux/selectors/notificationsSelectors';
 
 export function MainHeader() {
   //global context
@@ -28,6 +28,8 @@ export function MainHeader() {
     changeStateModalNav,
     changeStateModalNotifications,
   } = useContext(UIContext);
+  const {selectUser} = authSelectors();
+  const {selectCounterNotifications} = notificationsSelectors();
   const user = useAppSelector(selectUser());
   const counterNotifications = useAppSelector(selectCounterNotifications());
   const {top} = useSafeAreaInsets();

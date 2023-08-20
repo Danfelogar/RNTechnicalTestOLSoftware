@@ -6,9 +6,9 @@ import React, {useEffect} from 'react';
 import {Dashboard, ProjectList, Projects, Users, UsersList} from '../screens';
 import {MainHeader} from '../components';
 import {dummyServices} from '../services';
-import {selectUser} from '../redux/selectors/auth.selector';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
-import {addRolUser} from '../redux/actions';
+import {authSelectors} from '../redux/selectors/authSelectors';
+import {authActionsSelectors} from '../redux/actions/authActions';
 
 export type RootStackPrivateParams = {
   Dashboard: undefined;
@@ -24,8 +24,10 @@ const Stack = createStackNavigator<RootStackPrivateParams>();
 
 export function PrivateNavigation() {
   //globalContext
+  const {selectUser} = authSelectors();
   const user = useAppSelector(selectUser());
   const dispatch = useAppDispatch();
+  const {addRolUser} = authActionsSelectors();
   //logic for get rol in user for private root
   async function getRol(val: number) {
     return await dummyServices

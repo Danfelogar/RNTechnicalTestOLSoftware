@@ -18,18 +18,16 @@ import {heightFullScreen, widthFullScreen} from '../helpers';
 import {CustomText} from './custom';
 import {useModalNotifications} from './hooks';
 import {useAppSelector} from '../redux/hooks';
-import {
-  selectNotificationsArr,
-  selectTodosArr,
-} from '../redux/selectors/notifications.selector';
 import {CardNotifications} from './CardNotifications';
 import {CardTodos} from './CardTodos';
+import {notificationsSelectors} from '../redux/selectors/notificationsSelectors';
 
 export function ModalNotification() {
   //globalContext
   const {
     theme: {colors, dark},
   } = useContext(ThemeContext);
+  const {selectNotificationsArr, selectTodosArr} = notificationsSelectors();
   const notificationsArr = useAppSelector(selectNotificationsArr());
   const todosArr = useAppSelector(selectTodosArr());
   const {isOpenModalNotifications, changeStateModalNotifications} =

@@ -1,12 +1,12 @@
 //components
 import {dummyServices} from '../../services';
 import {useAppDispatch} from '../../redux/hooks';
-import {addNotification} from '../../redux/actions';
+import {notificationsActions} from '../../redux/actions';
 
 export function useModalNotifications() {
   //globalContext
   const dispatch = useAppDispatch();
-
+  const {addNotification} = notificationsActions();
   async function getServicesNotifications() {
     try {
       const [notificationRes, todosRes] = await Promise.allSettled([

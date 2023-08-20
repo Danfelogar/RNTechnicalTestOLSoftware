@@ -1,2 +1,2 @@
-export * from './auth.actions';
-export * from './notifications.actions';
+export * from './authActions';
+export * from './notificationsActions';

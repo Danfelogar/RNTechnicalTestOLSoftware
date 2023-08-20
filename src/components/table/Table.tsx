@@ -23,13 +23,14 @@ import {CustomText, SnackbarError} from '../custom';
 import {ModalConfirm} from './ModalConfirm';
 import {useNavigation} from '@react-navigation/native';
 import {useAppSelector} from '../../redux/hooks';
-import {selectUserRol} from '../../redux/selectors/auth.selector';
+import {authSelectors} from '../../redux/selectors/authSelectors';
 //missing factorization TODO
 export function Table({nameServices}: ITable) {
   //global context
   const {
     theme: {colors},
   } = useContext(ThemeContext);
+  const {selectUserRol} = authSelectors();
   const userRol = useAppSelector(selectUserRol());
   const navigation = useNavigation<any>();
   const {isOpenModalWarningForDelete, changeStateModalWarningForDelete} =

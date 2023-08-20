@@ -6,11 +6,9 @@ import React, {useEffect} from 'react';
 import {Login} from '../screens';
 import {PrivateNavigation} from './PrivateNavigation';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
-import {selectIsAuth, selectUserJWT} from '../redux/selectors/auth.selector';
-import {
-  clearUserCredentials,
-  revalidateUser,
-} from '../redux/actions/auth.actions';
+
+import {authSelectors} from '../redux/selectors/authSelectors';
+import {authActionsSelectors} from '../redux/actions';
 
 export type RootStackMainParams = {
   Login: undefined;
@@ -22,8 +20,11 @@ const Stack = createStackNavigator<RootStackMainParams>();
 export function NavigationMain() {
   //globalContext
   const dispatch = useAppDispatch();
+  const {revalidateUser, clearUserCredentials} = authActionsSelectors();
+  const {selectIsAuth, selectUserJWT} = authSelectors();
   const isUserAuth = useAppSelector(selectIsAuth());
   const userJWT = useAppSelector(selectUserJWT());
+
   //validated credentials for roots
   useEffect(() => {
     if (userJWT) {

@@ -11,14 +11,15 @@ import {heightFullScreen} from '../../helpers';
 //components
 import {ThemeContext} from '../../context';
 import {Button, CustomText, Table} from '../../components';
-import {selectUserRol} from '../../redux/selectors/auth.selector';
 import {useAppSelector} from '../../redux/hooks';
+import {authSelectors} from '../../redux/selectors/authSelectors';
 
 export function ProjectList() {
   //global context
   const {
     theme: {colors, dark},
   } = useContext(ThemeContext);
+  const {selectUserRol} = authSelectors();
   const userRol = useAppSelector(selectUserRol());
   const navigation = useNavigation<any>();
   //customStyles

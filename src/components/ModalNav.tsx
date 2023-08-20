@@ -18,11 +18,12 @@ import {ThemeContext, UIContext} from '../context';
 import {useModalNav} from './hooks';
 import {CustomText} from './custom';
 import {useAppDispatch} from '../redux/hooks';
-import {clearUserCredentials} from '../redux/actions/auth.actions';
+import {authActionsSelectors} from '../redux/actions';
 
 export function ModalNav() {
   //globalContext
   const dispatch = useAppDispatch();
+  const {clearUserCredentials} = authActionsSelectors();
   const {
     theme: {colors, dark},
   } = useContext(ThemeContext);

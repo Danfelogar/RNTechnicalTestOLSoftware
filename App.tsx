@@ -3,7 +3,6 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-
 import {NavigationContainer} from '@react-navigation/native';
 
 //contexts
@@ -11,11 +10,10 @@ import {ThemeProvider} from './src/context';
 
 //components
 import {NavigationMain} from './src/navigation';
-import createPersistedStore from './src/redux/store';
+
 import {UIProvider} from './src/context/ui';
 import {ActivityIndicator} from 'react-native';
-
-const {store, persistor} = createPersistedStore();
+import {persistor, store} from './src/redux/store';
 
 function App(): JSX.Element {
   return (

@@ -1,4 +1,4 @@
-import {IUserLogin} from '../../screens';
+import {IUserLogin} from '../../../screens';
 
 export interface IAuthState {
   user: IUserLogin | null;
